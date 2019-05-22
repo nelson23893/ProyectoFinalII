@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using NReco.VideoConverter;
 using YoutubeExplode;
 using YoutubeExplode.Models.MediaStreams;
+using System.Runtime.InteropServices;
 
 namespace ProyectoFinal3
 {
@@ -84,6 +85,56 @@ namespace ProyectoFinal3
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+            reproductor.uiMode = "invisible";
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    reproductor.URL = openFileDialog1.FileName;
+            //}
+            //reproductor.Ctlcontrols.play();
+        }
+
+        private void btnAlto_Click(object sender, EventArgs e)
+        {
+            reproductor.Ctlcontrols.stop();
+        }
+
+        //DLL a utilizar para poder reproducir MP3
+        [DllImport("winmm.dll")]
+
+        //Método externo (esta definido en winmm.dll) tipo long que se encargara de enviar comandos al MCI
+        private static extern long mciSendString(string strCommand, StringBuilder strReturn, int iReturnLength, IntPtr hwndCallback);
+
+
+        //Método para reproducir MP3 a través de MCI
+        //Recibe: Nombre y ruta del archivo a reproducir
+        public void PlayMP3(string rutaArchivo)
+        {
+            //Comandos multimedia de MCI http://msdn.microsoft.com/en-us/library/ms712587        
+
+            //Abrir el dispositivo MCI
+            //miMP3 es el alias con el que manejaremos el archivo MP3 recibido como parametro en rutaArchivo
+            string comandoMCI = string.Format("open \"{0}\" type mpegvideo alias miMP3", rutaArchivo);
+            //a traves de mciSendString, enviamos el comando anterior, para abrir el dispositivo MCO
+            mciSendString(comandoMCI, null, 0, IntPtr.Zero);
+            //Ahora en comandoMCI daremos la orden de reproducir el archivo, recordando que lo hacemos
+            //a traves del alias que definimos anteriormente miMP3
+            comandoMCI = "play miMP3";
+            //enviamos a ejecutar el comando play
+            mciSendString(comandoMCI, null, 0, IntPtr.Zero);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

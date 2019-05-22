@@ -34,22 +34,27 @@
             this.btnDownload = new System.Windows.Forms.Button();
             this.ckbAudio = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnAlto = new System.Windows.Forms.Button();
+            this.reproductor = new AxWMPLib.AxWindowsMediaPlayer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.reproductor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtURL
             // 
-            this.txtURL.Location = new System.Drawing.Point(12, 12);
+            this.txtURL.Location = new System.Drawing.Point(603, 44);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(211, 22);
             this.txtURL.TabIndex = 0;
             // 
             // btnDownload
             // 
-            this.btnDownload.Location = new System.Drawing.Point(229, 12);
+            this.btnDownload.Location = new System.Drawing.Point(820, 44);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(96, 23);
             this.btnDownload.TabIndex = 1;
@@ -60,7 +65,7 @@
             // ckbAudio
             // 
             this.ckbAudio.AutoSize = true;
-            this.ckbAudio.Location = new System.Drawing.Point(343, 18);
+            this.ckbAudio.Location = new System.Drawing.Point(934, 50);
             this.ckbAudio.Name = "ckbAudio";
             this.ckbAudio.Size = new System.Drawing.Size(101, 21);
             this.ckbAudio.TabIndex = 2;
@@ -71,45 +76,93 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(226, 49);
+            this.label4.Location = new System.Drawing.Point(817, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "label1";
             // 
-            // axWindowsMediaPlayer1
+            // btnPlay
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(557, 283);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(496, 211);
-            this.axWindowsMediaPlayer1.TabIndex = 4;
-            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            this.btnPlay.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlay.Location = new System.Drawing.Point(639, 510);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(76, 29);
+            this.btnPlay.TabIndex = 5;
+            this.btnPlay.Text = "►";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // button1
+            // btnAtras
             // 
-            this.button1.Location = new System.Drawing.Point(557, 510);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAtras.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.Location = new System.Drawing.Point(557, 510);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(76, 29);
+            this.btnAtras.TabIndex = 6;
+            this.btnAtras.Text = "««";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.Location = new System.Drawing.Point(721, 510);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(76, 29);
+            this.btnSiguiente.TabIndex = 7;
+            this.btnSiguiente.Text = "» » ";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            // 
+            // btnAlto
+            // 
+            this.btnAlto.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlto.Location = new System.Drawing.Point(803, 510);
+            this.btnAlto.Name = "btnAlto";
+            this.btnAlto.Size = new System.Drawing.Size(76, 29);
+            this.btnAlto.TabIndex = 8;
+            this.btnAlto.Text = "◙ ";
+            this.btnAlto.UseVisualStyleBackColor = true;
+            this.btnAlto.Click += new System.EventHandler(this.btnAlto_Click);
+            // 
+            // reproductor
+            // 
+            this.reproductor.Enabled = true;
+            this.reproductor.Location = new System.Drawing.Point(557, 283);
+            this.reproductor.Name = "reproductor";
+            this.reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("reproductor.OcxState")));
+            this.reproductor.Size = new System.Drawing.Size(496, 211);
+            this.reproductor.TabIndex = 4;
+            this.reproductor.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(630, 184);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 551);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnAlto);
+            this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.reproductor);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ckbAudio);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.txtURL);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.reproductor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,9 +174,13 @@
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.RadioButton ckbAudio;
         private System.Windows.Forms.Label label4;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private AxWMPLib.AxWindowsMediaPlayer reproductor;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnAlto;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
