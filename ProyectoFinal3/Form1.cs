@@ -48,7 +48,8 @@ namespace ProyectoFinal3
             //Ya descargado se inicia la conversión a MP3
             var Convert = new NReco.VideoConverter.FFMpegConverter();
             //Especificar la carpeta donde se van a guardar los archivos, recordar la \ del final
-            String SaveMP3File = @"C:\Users\Carlos Escobar\Source\Repos\programacion\Pro3Play\MP3\" + fileName.Replace(".mp4", ".mp3");
+            String SaveMP3File = @"C:\Users\Ramirez\Documents\Visual Studio 2015\Projects\ProyectoFinal3\ProyectoFinal3\bin\Debug\Musica\" + fileName.Replace(".mp4", ".mp3");
+        
             //Guarda el archivo convertido en la ubicación indicada
             Convert.ConvertMedia(fileName, SaveMP3File, "mp3");
             //Si el checkbox de solo audio está chequeado, borrar el mp4 despues de la conversión
