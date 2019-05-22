@@ -9,7 +9,7 @@ namespace ProyectoFinal3
     public class clsMiLista
     {
         string nombre;
-        string direccion;
+        string url;
         string portada;
 
         public string Nombre
@@ -25,19 +25,18 @@ namespace ProyectoFinal3
             }
         }
 
-        public string Direccion
+        public string Url
         {
             get
             {
-                return direccion;
+                return url;
             }
 
             set
             {
-                direccion = value;
+                url = value;
             }
         }
-
         public string Portada
         {
             get
@@ -50,5 +49,7 @@ namespace ProyectoFinal3
                 portada = value;
             }
         }
+
+    
     }
 }

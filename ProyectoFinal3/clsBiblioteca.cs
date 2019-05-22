@@ -10,7 +10,7 @@ namespace ProyectoFinal3
     {
         int id;
         string cancion;
-        string direccion;
+        string url;
         string portada;
 
         public int Id
@@ -39,16 +39,16 @@ namespace ProyectoFinal3
             }
         }
 
-        public string Direccion
+        public string Url
         {
             get
             {
-                return direccion;
+                return url;
             }
 
             set
             {
-                direccion = value;
+                url = value;
             }
         }
 
@@ -64,5 +64,7 @@ namespace ProyectoFinal3
                 portada = value;
             }
         }
+
+       
     }
 }
