@@ -40,11 +40,13 @@
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAlto = new System.Windows.Forms.Button();
             this.reproductor = new AxWMPLib.AxWindowsMediaPlayer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picturebPortada = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.DuracionActualTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.reproductor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturebPortada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +90,7 @@
             // btnPlay
             // 
             this.btnPlay.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(639, 510);
+            this.btnPlay.Location = new System.Drawing.Point(840, 649);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(76, 29);
             this.btnPlay.TabIndex = 5;
@@ -99,7 +101,7 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(557, 510);
+            this.btnAtras.Location = new System.Drawing.Point(745, 649);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(76, 29);
             this.btnAtras.TabIndex = 6;
@@ -109,17 +111,18 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(721, 510);
+            this.btnSiguiente.Location = new System.Drawing.Point(959, 649);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(76, 29);
             this.btnSiguiente.TabIndex = 7;
             this.btnSiguiente.Text = "» » ";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAlto
             // 
             this.btnAlto.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlto.Location = new System.Drawing.Point(803, 510);
+            this.btnAlto.Location = new System.Drawing.Point(1165, 649);
             this.btnAlto.Name = "btnAlto";
             this.btnAlto.Size = new System.Drawing.Size(76, 29);
             this.btnAlto.TabIndex = 8;
@@ -130,21 +133,21 @@
             // reproductor
             // 
             this.reproductor.Enabled = true;
-            this.reproductor.Location = new System.Drawing.Point(557, 283);
+            this.reproductor.Location = new System.Drawing.Point(745, 420);
             this.reproductor.Name = "reproductor";
             this.reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("reproductor.OcxState")));
             this.reproductor.Size = new System.Drawing.Size(496, 211);
             this.reproductor.TabIndex = 4;
             this.reproductor.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
-            // pictureBox1
+            // picturebPortada
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(630, 184);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picturebPortada.Location = new System.Drawing.Point(1089, 329);
+            this.picturebPortada.Name = "picturebPortada";
+            this.picturebPortada.Size = new System.Drawing.Size(100, 50);
+            this.picturebPortada.TabIndex = 9;
+            this.picturebPortada.TabStop = false;
+            this.picturebPortada.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dataGridView1
             // 
@@ -163,14 +166,26 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Biblioteca de Musica";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1062, 649);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 29);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "II";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 551);
+            this.ClientSize = new System.Drawing.Size(1253, 690);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picturebPortada);
             this.Controls.Add(this.btnAlto);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAtras);
@@ -184,7 +199,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reproductor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturebPortada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,9 +218,11 @@
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAlto;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picturebPortada;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer DuracionActualTime;
     }
 }
 

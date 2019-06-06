@@ -18,11 +18,12 @@ namespace ProyectoFinal3
 {
     public partial class Form1 : Form
     {
+        List<clsBiblioteca> listBiblioteca = new List<clsBiblioteca>();
         public Form1()
         {
             InitializeComponent();
         }
-
+        string urlAudio;
 
         private async Task MainAsync()
         {
@@ -98,18 +99,43 @@ namespace ProyectoFinal3
         {
             
             reproductor.uiMode = "invisible";
+            LeerBiblioteca();
+        }
+        private void LeerBiblioteca()
+        {
+            FileStream stream = new FileStream("Biblioteca.json", FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            while (reader.Peek() > -1)
+            {
+                string lectura = reader.ReadLine();
+                clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
+                listBiblioteca.Add(libroLeido);
+            }
+            reader.Close();
+            dataGridView1.DataSource = listBiblioteca;
+            dataGridView1.Refresh();
+            //Libro lib = Agregar.OrderBy(al => al.Anio1).First();
+            //textBox5.Text = lib.Anio1.ToString();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    reproductor.URL = openFileDialog1.FileName;
-            //}
-            //reproductor.Ctlcontrols.play();
-            string cadena = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            reproductor.URL = cadena;
-            reproductor.Ctlcontrols.play();
+            double time = reproductor.Ctlcontrols.currentPosition; //return always 0 for you, because you pause first and after get the value
+            reproductor.Ctlcontrols.pause();
+            if (time > 0)
+            {
+                reproductor.Ctlcontrols.currentPosition = time;
+                reproductor.Ctlcontrols.play();
+            }
+            else
+            {
+                string ruta = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                reproductor.URL = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                urlAudio = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                reproductor.Ctlcontrols.play();
+                Image f = Image.FromFile(ruta);
+                picturebPortada.Image = f;
+            }
         }
 
         private void btnAlto_Click(object sender, EventArgs e)
@@ -180,6 +206,30 @@ namespace ProyectoFinal3
 
             MessageBox.Show("Ingresado");
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            reproductor.Ctlcontrols.pause();
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int filaActual = dataGridView1.CurrentRow.Index;
+                dataGridView1.CurrentCell = dataGridView1.Rows[filaActual + 1].Cells[0];
+                string ruta = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                reproductor.URL = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                reproductor.Ctlcontrols.play();
+                Image f = Image.FromFile(ruta);
+                picturebPortada.Image = f;
+            }
+            catch
+            {
+                MessageBox.Show("No ha mas Canciones");
+                DuracionActualTime.Stop();
+            }
         }
     }
 }
