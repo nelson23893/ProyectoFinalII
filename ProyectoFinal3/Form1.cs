@@ -101,21 +101,23 @@ namespace ProyectoFinal3
             reproductor.uiMode = "invisible";
             LeerBiblioteca();
         }
+
+
         private void LeerBiblioteca()
         {
-            FileStream stream = new FileStream("Biblioteca.json", FileMode.Open, FileAccess.Read);
-            StreamReader reader = new StreamReader(stream);
-            while (reader.Peek() > -1)
-            {
-                string lectura = reader.ReadLine();
-                clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
-                listBiblioteca.Add(libroLeido);
-            }
-            reader.Close();
-            dataGridView1.DataSource = listBiblioteca;
-            dataGridView1.Refresh();
-            //Libro lib = Agregar.OrderBy(al => al.Anio1).First();
-            //textBox5.Text = lib.Anio1.ToString();
+        //    FileStream stream = new FileStream("Biblioteca.json", FileMode.Open, FileAccess.Read);
+        //    StreamReader reader = new StreamReader(stream);
+        //    while (reader.Peek() > -1)
+        //    {
+        //        string lectura = reader.ReadLine();
+        //        clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
+        //        listBiblioteca.Add(libroLeido);
+        //    }
+        //    reader.Close();
+        //    dataGridView1.DataSource = listBiblioteca;
+        //    dataGridView1.Refresh();
+        //    //Libro lib = Agregar.OrderBy(al => al.Anio1).First();
+        //    //textBox5.Text = lib.Anio1.ToString();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -230,6 +232,14 @@ namespace ProyectoFinal3
                 MessageBox.Show("No ha mas Canciones");
                 DuracionActualTime.Stop();
             }
+        }
+        private void GuardarBiblioteca(clsBiblioteca objBiblioteca)
+        {
+            string salida = JsonConvert.SerializeObject(objBiblioteca);
+            FileStream stream = new FileStream("Biblioteca.json", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            writer.WriteLine(salida);
+            writer.Close();
         }
     }
 }
