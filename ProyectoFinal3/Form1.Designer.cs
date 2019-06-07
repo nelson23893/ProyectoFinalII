@@ -29,37 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtURL = new System.Windows.Forms.TextBox();
             this.btnDownload = new System.Windows.Forms.Button();
             this.ckbAudio = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnAtras = new System.Windows.Forms.Button();
-            this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAlto = new System.Windows.Forms.Button();
-            this.reproductor = new AxWMPLib.AxWindowsMediaPlayer();
             this.picturebPortada = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.DuracionActualTime = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.reproductor)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtLetra = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.picturebPortada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtURL
             // 
-            this.txtURL.Location = new System.Drawing.Point(603, 44);
+            this.txtURL.Location = new System.Drawing.Point(22, 64);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(211, 22);
             this.txtURL.TabIndex = 0;
             // 
             // btnDownload
             // 
-            this.btnDownload.Location = new System.Drawing.Point(820, 44);
+            this.btnDownload.Location = new System.Drawing.Point(22, 113);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(96, 23);
             this.btnDownload.TabIndex = 1;
@@ -70,7 +68,7 @@
             // ckbAudio
             // 
             this.ckbAudio.AutoSize = true;
-            this.ckbAudio.Location = new System.Drawing.Point(934, 50);
+            this.ckbAudio.Location = new System.Drawing.Point(22, 163);
             this.ckbAudio.Name = "ckbAudio";
             this.ckbAudio.Size = new System.Drawing.Size(101, 21);
             this.ckbAudio.TabIndex = 2;
@@ -81,43 +79,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(817, 81);
+            this.label4.Location = new System.Drawing.Point(133, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "label1";
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(840, 649);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(76, 29);
-            this.btnPlay.TabIndex = 5;
-            this.btnPlay.Text = "►";
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(745, 649);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(76, 29);
-            this.btnAtras.TabIndex = 6;
-            this.btnAtras.Text = "««";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(959, 649);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(76, 29);
-            this.btnSiguiente.TabIndex = 7;
-            this.btnSiguiente.Text = "» » ";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAlto
             // 
@@ -128,21 +94,10 @@
             this.btnAlto.TabIndex = 8;
             this.btnAlto.Text = "◙ ";
             this.btnAlto.UseVisualStyleBackColor = true;
-            this.btnAlto.Click += new System.EventHandler(this.btnAlto_Click);
-            // 
-            // reproductor
-            // 
-            this.reproductor.Enabled = true;
-            this.reproductor.Location = new System.Drawing.Point(745, 420);
-            this.reproductor.Name = "reproductor";
-            this.reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("reproductor.OcxState")));
-            this.reproductor.Size = new System.Drawing.Size(496, 211);
-            this.reproductor.TabIndex = 4;
-            this.reproductor.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
             // picturebPortada
             // 
-            this.picturebPortada.Location = new System.Drawing.Point(1089, 329);
+            this.picturebPortada.Location = new System.Drawing.Point(376, 44);
             this.picturebPortada.Name = "picturebPortada";
             this.picturebPortada.Size = new System.Drawing.Size(100, 50);
             this.picturebPortada.TabIndex = 9;
@@ -152,7 +107,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 44);
+            this.dataGridView1.Location = new System.Drawing.Point(526, 226);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 10;
@@ -160,37 +115,66 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 24);
+            this.label1.Location = new System.Drawing.Point(19, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 17);
+            this.label1.Size = new System.Drawing.Size(187, 17);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Biblioteca de Musica";
+            this.label1.Text = "Descargar video de youtube";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1062, 649);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 29);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "II";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(373, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "portada";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(278, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "letras";
+            // 
+            // txtLetra
+            // 
+            this.txtLetra.Location = new System.Drawing.Point(281, 162);
+            this.txtLetra.Multiline = true;
+            this.txtLetra.Name = "txtLetra";
+            this.txtLetra.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLetra.Size = new System.Drawing.Size(211, 150);
+            this.txtLetra.TabIndex = 15;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 394);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(198, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Agregar Portada";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1253, 690);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(887, 690);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtLetra);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.picturebPortada);
             this.Controls.Add(this.btnAlto);
-            this.Controls.Add(this.btnSiguiente);
-            this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.btnPlay);
-            this.Controls.Add(this.reproductor);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ckbAudio);
             this.Controls.Add(this.btnDownload);
@@ -198,7 +182,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.reproductor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturebPortada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -212,17 +195,17 @@
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.RadioButton ckbAudio;
         private System.Windows.Forms.Label label4;
-        private AxWMPLib.AxWindowsMediaPlayer reproductor;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAlto;
         private System.Windows.Forms.PictureBox picturebPortada;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer DuracionActualTime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtLetra;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

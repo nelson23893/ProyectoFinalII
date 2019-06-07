@@ -13,11 +13,16 @@ using YoutubeExplode;
 using YoutubeExplode.Models.MediaStreams;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
+using System.IO;
+
 
 namespace ProyectoFinal3
 {
     public partial class Form1 : Form
     {
+        string URLportada;
+        string URlLyries;
+        int contador;
         List<clsBiblioteca> listBiblioteca = new List<clsBiblioteca>();
         public Form1()
         {
@@ -53,7 +58,7 @@ namespace ProyectoFinal3
             //Ya descargado se inicia la conversión a MP3
             var Convert = new NReco.VideoConverter.FFMpegConverter();
             //Especificar la carpeta donde se van a guardar los archivos, recordar la \ del final
-            String SaveMP3File = @"C:\Users\Ramirez\Documents\Visual Studio 2015\Projects\ProyectoFinal3\ProyectoFinal3\bin\Debug\Musica\" + fileName.Replace(".mp4", ".mp3");
+            String SaveMP3File = @"C:\Users\Ramirez\Documents\Visual Studio 2015\Projects\ProyectoFinal3\ProyectoFinal3\mp3" + fileName.Replace(".mp4", ".mp3");
             biblioteca.Url = SaveMP3File;
             biblioteca.Cancion = fileName;
             //Guarda el archivo convertido en la ubicación indicada
@@ -68,7 +73,12 @@ namespace ProyectoFinal3
             label4.Text = "";
             txtURL.Text = "";
             ckbAudio.Enabled = false;
-            GuardarCancion(biblioteca);
+
+            biblioteca.Letra = URlLyries;
+            biblioteca.Portada = URLportada;
+            biblioteca.Id = contador.ToString();
+            GuardarBiblioteca(biblioteca);
+            // GuardarCancion(biblioteca);
             //TODO: Cargar el MP3 al reproductor o a la lista de reproducción
             //CargarMP3s();
             //Se puede incluir un checkbox para indicar que de una vez se reproduzca el MP3
@@ -87,9 +97,34 @@ namespace ProyectoFinal3
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            MainAsync();
-        }
+            if (txtLetra.Text != null)
+            {
 
+
+                //LeerJson();
+                letra();
+                if (txtURL.Text == "")
+                {
+                    MessageBox.Show("No hay URL del video");
+                }
+                else
+                {
+                    MainAsync();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No ingreso la letra de la cancion");
+            }
+        }
+        private void letra()
+        {                      
+             URlLyries = "C: \\Users\\Ramirez\\Documents\\Visual Studio 2015\\Projects\\ProyectoFinal3\\ProyectoFinal3\\letras" + contador + ".txt";
+            FileStream stream = new FileStream(URlLyries, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter write = new StreamWriter(stream);
+            write.WriteLine(txtLetra.Text);
+            write.Close();
+        }
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
 
@@ -98,52 +133,15 @@ namespace ProyectoFinal3
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            reproductor.uiMode = "invisible";
+           // reproductor.uiMode = "invisible";
             LeerBiblioteca();
+            contador = Convert.ToInt16(listBiblioteca.OrderByDescending(l => l.Id).ElementAt(0).Id.ToString());
+            contador = contador + 1;
         }
 
 
-        private void LeerBiblioteca()
-        {
-        //    FileStream stream = new FileStream("Biblioteca.json", FileMode.Open, FileAccess.Read);
-        //    StreamReader reader = new StreamReader(stream);
-        //    while (reader.Peek() > -1)
-        //    {
-        //        string lectura = reader.ReadLine();
-        //        clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
-        //        listBiblioteca.Add(libroLeido);
-        //    }
-        //    reader.Close();
-        //    dataGridView1.DataSource = listBiblioteca;
-        //    dataGridView1.Refresh();
-        //    //Libro lib = Agregar.OrderBy(al => al.Anio1).First();
-        //    //textBox5.Text = lib.Anio1.ToString();
-        }
 
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-            double time = reproductor.Ctlcontrols.currentPosition; //return always 0 for you, because you pause first and after get the value
-            reproductor.Ctlcontrols.pause();
-            if (time > 0)
-            {
-                reproductor.Ctlcontrols.currentPosition = time;
-                reproductor.Ctlcontrols.play();
-            }
-            else
-            {
-                string ruta = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                reproductor.URL = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                urlAudio = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                reproductor.Ctlcontrols.play();
-                Image f = Image.FromFile(ruta);
-                picturebPortada.Image = f;
-            }
-        }
 
-        private void btnAlto_Click(object sender, EventArgs e)
-        {
-            reproductor.Ctlcontrols.stop();
-        }
 
         //DLL a utilizar para poder reproducir MP3
         [DllImport("winmm.dll")]
@@ -180,28 +178,28 @@ namespace ProyectoFinal3
 
 
 
-       private void leerBiblioteca()
-        {
-            List<clsBiblioteca> obj = new List<clsBiblioteca>();
-            FileStream stream = new FileStream("biblioteca.json", FileMode.Open, FileAccess.Read);
-            StreamReader reader = new StreamReader(stream);
-            while (reader.Peek() > -1)
-            {
-                string lectura = reader.ReadLine();
-                clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
-                obj.Add(libroLeido);
-            }
-            reader.Close();
-            //Mostrar la lista de libros en el gridview
-            dataGridView1.DataSource = obj;
-            dataGridView1.Refresh();
+       //private void leerBiblioteca()
+       // {
+       //     List<clsBiblioteca> obj = new List<clsBiblioteca>();
+       //     FileStream stream = new FileStream("biblioteca.json", FileMode.Open, FileAccess.Read);
+       //     StreamReader reader = new StreamReader(stream);
+       //     while (reader.Peek() > -1)
+       //     {
+       //         string lectura = reader.ReadLine();
+       //         clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
+       //         obj.Add(libroLeido);
+       //     }
+       //     reader.Close();
+       //     //Mostrar la lista de libros en el gridview
+       //     dataGridView1.DataSource = obj;
+       //     dataGridView1.Refresh();
 
-        }
+       // }
 
         private void GuardarCancion(clsBiblioteca p)
         {
             string salida = JsonConvert.SerializeObject(p);
-            FileStream stream = new FileStream("biblioteca.json", FileMode.Append, FileAccess.Write);
+            FileStream stream = new FileStream("Biblioteca.json", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(salida);
             writer.Close();
@@ -210,29 +208,9 @@ namespace ProyectoFinal3
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            reproductor.Ctlcontrols.pause();
-        }
+       
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int filaActual = dataGridView1.CurrentRow.Index;
-                dataGridView1.CurrentCell = dataGridView1.Rows[filaActual + 1].Cells[0];
-                string ruta = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                reproductor.URL = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                reproductor.Ctlcontrols.play();
-                Image f = Image.FromFile(ruta);
-                picturebPortada.Image = f;
-            }
-            catch
-            {
-                MessageBox.Show("No ha mas Canciones");
-                DuracionActualTime.Stop();
-            }
-        }
+      
         private void GuardarBiblioteca(clsBiblioteca objBiblioteca)
         {
             string salida = JsonConvert.SerializeObject(objBiblioteca);
@@ -240,6 +218,35 @@ namespace ProyectoFinal3
             StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(salida);
             writer.Close();
+        }
+        private void LeerBiblioteca()
+        {
+            FileStream stream = new FileStream("Biblioteca.json", FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            while (reader.Peek() > -1)
+            {
+                string lectura = reader.ReadLine();
+                clsBiblioteca libroLeido = JsonConvert.DeserializeObject<clsBiblioteca>(lectura);
+                listBiblioteca.Add(libroLeido);
+            }
+            reader.Close();
+            //dataGridView2.DataSource = Agregar;
+            //dataGridView2.Refresh();
+            //Libro lib = Agregar.OrderBy(al => al.Anio1).First();
+            //textBox5.Text = lib.Anio1.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string nombrearchivo;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Image f = Image.FromFile(openFileDialog1.FileName);
+                picturebPortada.Image = f;
+                nombrearchivo = openFileDialog1.FileName.ToString();
+                URLportada = "C:\\Users\\Ramirez\\Documents\\Visual Studio 2015\\Projects\\ProyectoFinal3\\ProyectoFinal3\\portada" + contador + ".png";
+                f.Save("C:\\Users\\Ramirez\\Documents\\Visual Studio 2015\\Projects\\ProyectoFinal3\\ProyectoFinal3\\portada" + contador + ".png");
+            }
         }
     }
 }

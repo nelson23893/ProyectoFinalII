@@ -8,12 +8,13 @@ namespace ProyectoFinal3
 {
     public class clsBiblioteca
     {
-        int id;
+        string id;
         string cancion;
         string url;
         string portada;
+        string letra;
 
-        public int Id
+        public string Id
         {
             get
             {
@@ -65,6 +66,17 @@ namespace ProyectoFinal3
             }
         }
 
-       
+        public string Letra
+        {
+            get
+            {
+                return letra;
+            }
+
+            set
+            {
+                letra = value;
+            }
+        }
     }
 }
