@@ -57,7 +57,7 @@
             // 
             // btnDownload
             // 
-            this.btnDownload.Location = new System.Drawing.Point(22, 113);
+            this.btnDownload.Location = new System.Drawing.Point(239, 63);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(96, 23);
             this.btnDownload.TabIndex = 1;
@@ -68,7 +68,7 @@
             // ckbAudio
             // 
             this.ckbAudio.AutoSize = true;
-            this.ckbAudio.Location = new System.Drawing.Point(22, 163);
+            this.ckbAudio.Location = new System.Drawing.Point(354, 63);
             this.ckbAudio.Name = "ckbAudio";
             this.ckbAudio.Size = new System.Drawing.Size(101, 21);
             this.ckbAudio.TabIndex = 2;
@@ -79,7 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(133, 119);
+            this.label4.Location = new System.Drawing.Point(236, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 3;
@@ -97,7 +97,7 @@
             // 
             // picturebPortada
             // 
-            this.picturebPortada.Location = new System.Drawing.Point(376, 44);
+            this.picturebPortada.Location = new System.Drawing.Point(239, 148);
             this.picturebPortada.Name = "picturebPortada";
             this.picturebPortada.Size = new System.Drawing.Size(100, 50);
             this.picturebPortada.TabIndex = 9;
@@ -107,7 +107,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(526, 226);
+            this.dataGridView1.Location = new System.Drawing.Point(250, 255);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 10;
@@ -124,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(373, 24);
+            this.label2.Location = new System.Drawing.Point(236, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 13;
@@ -133,7 +133,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 142);
+            this.label3.Location = new System.Drawing.Point(19, 226);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 14;
@@ -141,7 +141,7 @@
             // 
             // txtLetra
             // 
-            this.txtLetra.Location = new System.Drawing.Point(281, 162);
+            this.txtLetra.Location = new System.Drawing.Point(22, 255);
             this.txtLetra.Multiline = true;
             this.txtLetra.Name = "txtLetra";
             this.txtLetra.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -150,7 +150,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 394);
+            this.button2.Location = new System.Drawing.Point(22, 122);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(198, 23);
             this.button2.TabIndex = 16;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 690);
+            this.ClientSize = new System.Drawing.Size(684, 440);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtLetra);
             this.Controls.Add(this.label3);

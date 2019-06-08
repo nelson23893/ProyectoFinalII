@@ -22,5 +22,11 @@ namespace ProyectoFinal3
             Form1 frm = new Form1();
             frm.ShowDialog();
         }
+
+        private void btnReproductor_Click(object sender, EventArgs e)
+        {
+            frmMyReproductor frm = new frmMyReproductor();
+            frm.ShowDialog();
+        }
     }
 }

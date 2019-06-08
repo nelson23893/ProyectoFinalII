@@ -45,7 +45,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1281, 350);
+            this.button1.Location = new System.Drawing.Point(432, 646);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 29);
             this.button1.TabIndex = 23;
@@ -63,7 +63,7 @@
             // btnAlto
             // 
             this.btnAlto.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlto.Location = new System.Drawing.Point(1384, 350);
+            this.btnAlto.Location = new System.Drawing.Point(535, 646);
             this.btnAlto.Name = "btnAlto";
             this.btnAlto.Size = new System.Drawing.Size(76, 29);
             this.btnAlto.TabIndex = 21;
@@ -74,7 +74,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(1178, 350);
+            this.btnSiguiente.Location = new System.Drawing.Point(329, 646);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(76, 29);
             this.btnSiguiente.TabIndex = 20;
@@ -84,7 +84,7 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(964, 350);
+            this.btnAtras.Location = new System.Drawing.Point(115, 646);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(76, 29);
             this.btnAtras.TabIndex = 19;
@@ -94,7 +94,7 @@
             // btnPlay
             // 
             this.btnPlay.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(1059, 350);
+            this.btnPlay.Location = new System.Drawing.Point(210, 646);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(76, 29);
             this.btnPlay.TabIndex = 18;
@@ -105,7 +105,7 @@
             // MyRepro
             // 
             this.MyRepro.Enabled = true;
-            this.MyRepro.Location = new System.Drawing.Point(964, 111);
+            this.MyRepro.Location = new System.Drawing.Point(115, 429);
             this.MyRepro.Name = "MyRepro";
             this.MyRepro.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MyRepro.OcxState")));
             this.MyRepro.Size = new System.Drawing.Size(496, 211);
@@ -114,10 +114,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 75);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(698, 441);
+            this.dataGridView1.Size = new System.Drawing.Size(755, 387);
             this.dataGridView1.TabIndex = 24;
             // 
             // frmMyReproductor

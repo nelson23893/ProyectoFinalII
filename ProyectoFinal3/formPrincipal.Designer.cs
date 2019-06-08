@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnDescarga = new System.Windows.Forms.Button();
+            this.btnReproductor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDescarga
@@ -41,11 +42,22 @@
             this.btnDescarga.UseVisualStyleBackColor = true;
             this.btnDescarga.Click += new System.EventHandler(this.btnDescarga_Click);
             // 
+            // btnReproductor
+            // 
+            this.btnReproductor.Location = new System.Drawing.Point(12, 84);
+            this.btnReproductor.Name = "btnReproductor";
+            this.btnReproductor.Size = new System.Drawing.Size(93, 35);
+            this.btnReproductor.TabIndex = 1;
+            this.btnReproductor.Text = "Reproductor";
+            this.btnReproductor.UseVisualStyleBackColor = true;
+            this.btnReproductor.Click += new System.EventHandler(this.btnReproductor_Click);
+            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 249);
+            this.Controls.Add(this.btnReproductor);
             this.Controls.Add(this.btnDescarga);
             this.Name = "formPrincipal";
             this.Text = "formPrincipal";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnDescarga;
+        private System.Windows.Forms.Button btnReproductor;
     }
 }
