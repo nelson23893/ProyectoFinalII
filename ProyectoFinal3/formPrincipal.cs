@@ -28,5 +28,16 @@ namespace ProyectoFinal3
             frmMyReproductor frm = new frmMyReproductor();
             frm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListasReproduccion frm = new frmListasReproduccion();
+            frm.ShowDialog();
+        }
+
+        private void btnListasReproduccion_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal3
 {
-    public class clsBiblioteca
+    class clsBiblioteca
     {
         string id;
         string cancion;

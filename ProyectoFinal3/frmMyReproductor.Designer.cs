@@ -45,7 +45,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(432, 646);
+            this.button1.Location = new System.Drawing.Point(331, 450);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 29);
             this.button1.TabIndex = 23;
@@ -54,16 +54,16 @@
             // 
             // picturebPortada
             // 
-            this.picturebPortada.Location = new System.Drawing.Point(1147, 26);
+            this.picturebPortada.Location = new System.Drawing.Point(516, 429);
             this.picturebPortada.Name = "picturebPortada";
-            this.picturebPortada.Size = new System.Drawing.Size(100, 50);
+            this.picturebPortada.Size = new System.Drawing.Size(130, 98);
             this.picturebPortada.TabIndex = 22;
             this.picturebPortada.TabStop = false;
             // 
             // btnAlto
             // 
             this.btnAlto.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlto.Location = new System.Drawing.Point(535, 646);
+            this.btnAlto.Location = new System.Drawing.Point(434, 450);
             this.btnAlto.Name = "btnAlto";
             this.btnAlto.Size = new System.Drawing.Size(76, 29);
             this.btnAlto.TabIndex = 21;
@@ -74,7 +74,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(329, 646);
+            this.btnSiguiente.Location = new System.Drawing.Point(228, 450);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(76, 29);
             this.btnSiguiente.TabIndex = 20;
@@ -84,7 +84,7 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(115, 646);
+            this.btnAtras.Location = new System.Drawing.Point(14, 450);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(76, 29);
             this.btnAtras.TabIndex = 19;
@@ -94,7 +94,7 @@
             // btnPlay
             // 
             this.btnPlay.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(210, 646);
+            this.btnPlay.Location = new System.Drawing.Point(109, 450);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(76, 29);
             this.btnPlay.TabIndex = 18;
@@ -105,10 +105,10 @@
             // MyRepro
             // 
             this.MyRepro.Enabled = true;
-            this.MyRepro.Location = new System.Drawing.Point(115, 429);
+            this.MyRepro.Location = new System.Drawing.Point(652, 429);
             this.MyRepro.Name = "MyRepro";
             this.MyRepro.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MyRepro.OcxState")));
-            this.MyRepro.Size = new System.Drawing.Size(496, 211);
+            this.MyRepro.Size = new System.Drawing.Size(115, 153);
             this.MyRepro.TabIndex = 17;
             // 
             // dataGridView1
@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1630, 771);
+            this.ClientSize = new System.Drawing.Size(802, 592);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picturebPortada);
